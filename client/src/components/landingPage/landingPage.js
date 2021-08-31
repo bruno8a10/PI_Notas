@@ -7,7 +7,7 @@ function LandingPage() {
     <div>
         
         <p class="centrado">
-          <img className="i" width="800" height="150" src={logo} ></img>
+          <img className="i" width="700" height="110" src={logo} ></img>
           </p>
           
           

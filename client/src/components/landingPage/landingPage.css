@@ -9,17 +9,17 @@
     text-align: center;
     font-weight: 800;
     border: 5px solid #315afe; /*anchura, estilo y color borde*/
-padding: 10px; /*espacio alrededor texto*/
+padding: 5px; /*espacio alrededor texto*/
 background-color: transparent; /*color botón*/
 color: #ededed; /*color texto*/
 text-decoration: none; /*decoración texto*/
 text-transform: uppercase; /*capitalización texto*/
 font-family: 'Helvetica', sans-serif; /*tipografía texto*/
-font-size: 30px;
+font-size: 25px;
 border-radius: 5px; /*bordes redondos*/
-padding-top: 10px;
+padding-top: 5px;
 text-align: center;
-width: 400px;
+width: 220px;
 /* margin-left: 870px;  */
   }
 
