@@ -7,10 +7,10 @@ const app = Router();
 app.get("/", async (req,res) => {
     const name = req.query.name;
     try{
-        const apiCountries =  await axios.get(URLAPI)
-        const c = apiCountries.data;
+        // const apiCountries =  await axios.get(URLAPI)
+        // const c = apiCountries.data;
        
-        //let response =[]; 
+        // let response =[]; 
         // for(let i =0; i<c.length; i++){
         //     response.push({
         //     id:c[i].alpha3Code,
@@ -24,7 +24,7 @@ app.get("/", async (req,res) => {
         // }
         // for(let j= 2; j< response.length; j++){
         //     console.log(response[j])
-        //       await Country.findOrCreate({
+        //       await Country.create({
         //             id: response[j].id,
         //             name: response[j].name,
         //             flag: response[j].flag,
