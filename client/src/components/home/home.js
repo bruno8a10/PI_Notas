@@ -9,6 +9,7 @@ import Cards from "../cards/cards";
 import { useDispatch, useSelector } from 'react-redux';
 import {connect} from "react-redux";
 import {getCountries} from "../../actions";
+
 function Home(props) {
   const estados = useSelector((state) => state); 
   const [query, setQuery] = useState('');
@@ -18,6 +19,24 @@ function Home(props) {
     }
     fetchData(query)
   },[query])
+
+//______________________busqueda
+const [input, setInput] = useState({
+})
+function handlePoke (e) {
+  setInput({
+    ...input,
+    [e.target.name]:[...input.id, e.target.value]
+  })
+}
+const handleChange = (q) => {
+  setQuery(q);
+}
+const handleSubmit = (event) => {
+  event.preventDefault();
+}
+
+
   //_____________________
 
     return(
@@ -30,7 +49,17 @@ function Home(props) {
         <FiltroAct/>
         <FiltroCont/>
         </div> 
-        <Ssearch />
+       
+        <p class="centrado">
+        <section>
+         <form className="form-control"  onSubmit={(e)=>handleSubmit(e)} >
+          <input className="input-css"
+          type="search"
+          placeholder="Buscar..." 
+          onChange={(e)=>handleChange(e.target.value)}/>
+         </form>
+        </section>
+        </p>
         <Cards />
     </div>
     )
