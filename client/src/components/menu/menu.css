@@ -33,13 +33,14 @@ nav ul li a {
 	display:block;
 	padding:15px 12px;
 	font-size: 17px;
-	font-weight: 600;
+	font-weight: 500;
 }
 nav ul li a:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
   background:#000000;
   color:#ffffff;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 nav > ul > li:hover div {
@@ -91,4 +92,24 @@ nav ul li div ul li a {
 	font-size: 16px;
 	color:#000;
 }
-
+.button4 {
+	/* Alinear los botones con los campos de texto */
+	/* mismo tamaño que los elementos de la etiqueta */
+	font-family: "Open Sans";
+	position: relative;
+	text-align: center;
+	font-size: 18px;
+	font-weight: 500;
+	border: 3px solid transparent; /*anchura, estilo y color borde*/
+  padding: 10px; /*espacio alrededor texto*/
+  background-color: transparent; /*color botón*/
+  color: #3366ff; /*color texto*/
+  text-decoration: none; /*decoración texto*/
+  text-transform: uppercase; /*capitalización texto*/
+  border-radius: 5px; /*bordes redondos*/
+  /* margin-left: 870px;  */
+  }
+  .button4:hover{
+	color: #ffffff; /*color texto*/
+	font-weight: 600;
+  }

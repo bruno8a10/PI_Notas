@@ -1,14 +1,24 @@
-//import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../img/api.png";
 import "./home.css";
 import Menu from "../menu/menu";
 import FiltroAct from "../filtro/filtro1";
 import FiltroCont from "../filtro/filtro2";
 import Ssearch from "../ssearch/ssearch";
-//import { useDispatch, useSelector } from 'react-redux';
-
-export  default function Home() {
-
+import Cards from "../cards/cards";
+import { useDispatch, useSelector } from 'react-redux';
+import {connect} from "react-redux";
+import {getCountries} from "../../actions";
+function Home(props) {
+  const estados = useSelector((state) => state); 
+  const [query, setQuery] = useState('');
+  useEffect(() => {
+    async function fetchData(query) {
+      await props.getCountries(query)
+    }
+    fetchData(query)
+  },[query])
+  //_____________________
 
     return(
     <div className="Home">
@@ -21,7 +31,20 @@ export  default function Home() {
         <FiltroCont/>
         </div> 
         <Ssearch />
+        <Cards />
     </div>
     )
   }
    //===========================================//
+   function mapStateToProps(state){
+    return {
+      ...state
+    }
+  }
+  //Actions
+function mapDispatchToProps(dispatch) {
+  return {
+    getCountries: (query) => dispatch(getCountries(query))
+  }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Home);
