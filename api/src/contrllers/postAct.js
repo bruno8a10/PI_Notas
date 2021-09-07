@@ -14,7 +14,7 @@ app.post("/", async function(req, res) {
             season
          });
          console.log(newAct)
-        // await newAct.addCountry(countries);
+        await newAct.addCountry(countries);
         return res.json(newAct) 
     }catch(error){
         return res.send(error)

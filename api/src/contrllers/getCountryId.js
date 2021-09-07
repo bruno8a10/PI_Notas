@@ -6,8 +6,7 @@ const app = Router();
 app.get("/:id", async function (req,res){
     const {id} = req.params;
         try{
-         let bsId = await Country.findByPk(id)
-         console.log(bsId)
+         let bsId = await Country.findByPk(id.toUpperCase())
          return res.status(200).json(bsId)
         }catch(err){
         return res.send("Error")  

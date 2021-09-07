@@ -46,9 +46,11 @@ app.get("/", async (req,res) => {
                  },);
                 if(BsName){
                   return res.status(200).json(BsName)    
+                }else{
+                    return res.send("No existe")
                 }
             } catch(err){
-                return res.send("no existe")
+                return res.send(err)
             }
 
         }
