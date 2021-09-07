@@ -1,5 +1,6 @@
 export const GET_COUNTRIES = "GET_COUNTRIES";
-
+export const GET_DETALLE_COUNTRY = "GET_DETALLE_COUNTRY";
+export const EMPTY_DETALLE_COUNTRY = "EMPTY_DETALLE_COUNTRY";
 
 export function getCountries(query){
     return function(dispatch){
@@ -12,6 +13,24 @@ export function getCountries(query){
                 dispatch({type: GET_COUNTRIES, payload: json})
             })
         )
+    }
+}
+//___________________________________
+export function getDetalleCountry(id){
+    return function(dispatch){
+        return fetch(`http://localhost:3001/countryId/${id}`
+            
+        )
+        .then(res => res.json())
+        //despachamos el objeto al reduce
+        .then(json => {
+            dispatch({type:GET_DETALLE_COUNTRY, payload: json})
+        })
+    }
+}
+export function emptyDetalleCountry(num) {
+    return function(dispatch) {
+        dispatch({type: EMPTY_DETALLE_COUNTRY}) 
     }
 }
 

@@ -1,18 +1,33 @@
-import {GET_COUNTRIES} from "../actions"
+import {GET_COUNTRIES, GET_DETALLE_COUNTRY, EMPTY_DETALLE_COUNTRY} from "../actions"
 // //==== Setear Estado Global Inicial ======//
 const initialState = {
     countries:[],
-    ordenarContries:[]
+    ordenarContries:[],
+    countryDetalles:{}
 }
 // //==== Setear Reducers ======//
 function rootReducer(state = initialState, action){
-    console.log(" hola soy el culero de reducers")
+   //Rutas
     if (action.type === GET_COUNTRIES){
         return {
            ...state, 
            countries: action.payload
         }
       }
+
+
+    if(action.type === GET_DETALLE_COUNTRY){
+        return {
+            ...state,
+            countryDetalles: action.payload
+       }
+    }
+    if(action.type === EMPTY_DETALLE_COUNTRY){
+        return {
+            ...state,
+            countryDetalles:{}
+       }
+    }  
     //ordenamiento
       if(action.type === "OrdenarAZ"){
         return{
