@@ -6,7 +6,16 @@ const app = Router();
 app.get("/", async (req,res) =>{
     try{
         let act = await Activity.findAll({
-            include:{ model:Country}
+            attributes: {
+                exclude:['createdAt','updatedAt']},
+            include:{ 
+            model:Country,
+            attributes:['name'],
+            through:{
+                attributes:[]
+            }
+        }
+      
         });
         return res.status(200).json(act)
     }catch(err){

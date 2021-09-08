@@ -56,7 +56,15 @@ app.get("/", async (req,res) => {
         }
 
         let bs = await Country.findAll({
-            include:{ model:Activity}
+            attributes: {
+                exclude:['createdAt','updatedAt']},
+            include:{ 
+            model:Activity,
+            attributes:['name'],
+            through:{
+                attributes:[]
+            }
+        }
         })
         return res.status(200).json(bs)
     }catch(err){
