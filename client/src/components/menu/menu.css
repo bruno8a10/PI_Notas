@@ -98,14 +98,15 @@ nav ul li div ul li a {
 	font-family: "Open Sans";
 	position: relative;
 	text-align: center;
-	font-size: 18px;
-	font-weight: 500;
+	font-size: 16px;
+	font-weight: 400;
 	border: 3px solid transparent; /*anchura, estilo y color borde*/
-  padding: 10px; /*espacio alrededor texto*/
+  padding: 5px; /*espacio alrededor texto*/
   background-color: transparent; /*color botón*/
   color: #3366ff; /*color texto*/
   text-decoration: none; /*decoración texto*/
-  text-transform: uppercase; /*capitalización texto*/
+  /* text-transform: uppercase; */
+   /*capitalización texto*/
   border-radius: 5px; /*bordes redondos*/
   /* margin-left: 870px;  */
   }

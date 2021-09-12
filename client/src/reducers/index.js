@@ -1,7 +1,10 @@
-import {GET_COUNTRIES, GET_DETALLE_COUNTRY, EMPTY_DETALLE_COUNTRY} from "../actions"
+import {GET_COUNTRIES,GET_ACTIVITY, GET_DETALLE_COUNTRY, EMPTY_DETALLE_COUNTRY} from "../actions"
 // //==== Setear Estado Global Inicial ======//
 const initialState = {
     countries:[],
+    activity:[],
+    filtroContinente:[],
+    filtroActividad:[],
     ordenarContries:[],
     countryDetalles:{}
 }
@@ -14,8 +17,12 @@ function rootReducer(state = initialState, action){
            countries: action.payload
         }
       }
-
-
+      if (action.type === GET_ACTIVITY){
+        return {
+           ...state, 
+           activity: action.payload
+        }
+      }
     if(action.type === GET_DETALLE_COUNTRY){
         return {
             ...state,
@@ -53,7 +60,20 @@ function rootReducer(state = initialState, action){
              ordenarContries: action.payload
              }    
         } 
+    //________________________________________
+    if(action.type === "FiltrarPorContinente"){
+        return{
+        ...state,
+        filtroContinente: action.payload
+        }    
+   } 
 
+   if(action.type === "FiltrarPorActividad"){
+    return{
+    ...state,
+    filtroActividad: action.payload
+    }    
+  } 
     return state;
 }
  export default rootReducer;

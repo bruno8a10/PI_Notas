@@ -25,9 +25,9 @@ function DetalleCountry(props) {
        {props.countryDetalles.name ?
         <div className="detalle" >
            <h4>{props.countryDetalles.name}</h4>
-          <img width = "500px" height = "300px"src={props.countryDetalles.flag} alt={props.countryDetalles.name}/>
-          <h4>region: {props.countryDetalles.region}</h4>
-          <h4>subregion: {props.countryDetalles.subregion} Altura: {props.countryDetalles.height}</h4>
+          <img width = "400px" height = "250px"src={props.countryDetalles.flag} alt={props.countryDetalles.name}/>
+          <h4>region: {props.countryDetalles.region} Poblacion: {props.countryDetalles.population} </h4>
+          <h4>subregion: {props.countryDetalles.subregion} Area: {props.countryDetalles.area}</h4>
         </div>
          :<Spinner/>
        } 

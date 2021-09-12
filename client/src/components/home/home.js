@@ -42,7 +42,7 @@ const handleSubmit = (event) => {
     return(
     <div className="Home">
           <p class="centrado">
-          <img className="i" width="700" height="120" src={logo} ></img>
+          <img className="i" width="700" height="100" src={logo} ></img>
           </p>
         <Menu/>
         <div className="contenedor2">

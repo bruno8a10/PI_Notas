@@ -8,10 +8,10 @@
     list-style-type: none;
   }  
   .paginationBtns{
-      margin-top: 30px;
-      margin-left: 650px;
-      width: 60%;
-      height: 60%;
+      margin-top: 5px;
+      margin-left: 600px;
+      width: 40%;
+      height: 50%;
       justify-content: center;
   }
   .card {
@@ -19,22 +19,25 @@
     margin: 0 auto;
     text-align: center;
   }
-  .button1 {
+  .button {
     /* Alinear los botones con los campos de texto */
     /* mismo tamaño que los elementos de la etiqueta */
     position: relative;
     text-align: center;
     font-weight: 50;
-    border: 2px solid #000000; /*anchura, estilo y color borde*/
+    border: 3px solid #3366ff; /*anchura, estilo y color borde*/
 padding: 2 px; /*espacio alrededor texto*/
 background-color: transparent; /*color botón*/
-color: #000000; /*color texto*/
+color: #ffffff; /*color texto*/
 text-decoration: none; /*decoración texto*/
-text-transform: uppercase; /*capitalización texto*/
+/* text-transform: uppercase;  */
+/*capitalización texto*/
 font-family: 'Open Sans', sans-serif; /*tipografía texto*/
 border-radius: 5px; /*bordes redondos*/
-padding-top: -10px;
+padding-top: 0px;
 margin-top: 0px;
+width: 150px;
+height: 40px;
 /* margin-left: 870px;  */
   }
   .button1:hover{

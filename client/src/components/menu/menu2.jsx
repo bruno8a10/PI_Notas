@@ -6,7 +6,7 @@ export default function NavBar2() {
      <div >
  <nav>
 			<ul>
-				<li><a href="/">Inicio</a></li>
+      <li><a href="/Home">Todo los Paises</a></li>
 			</ul>
 		</nav>
       
