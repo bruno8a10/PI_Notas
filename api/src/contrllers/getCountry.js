@@ -7,21 +7,21 @@ const app = Router();
 app.get("/", async (req,res) => {
     const name = req.query.name;
     try{
-        // const apiCountries =  await axios.get(URLAPI)
-        // const c = apiCountries.data;
+        const apiCountries =  await axios.get(URLAPI)
+        const c = apiCountries.data;
        
-        // let response =[]; 
-        // for(let i =0; i<c.length; i++){
-        //     response.push({
-        //     id:c[i].alpha3Code,
-        //     name:c[i].name,
-        //     flag:c[i].flag,
-        //     region:c[i].region,
-        //     subregion:c[i].subregion,
-        //     area:c[i].area,
-        //     population: c[i].population
-        //     })
-        // }
+        let response =[]; 
+        for(let i =0; i<c.length; i++){
+            response.push({
+            id:c[i].alpha3Code,
+            name:c[i].name,
+            flag:c[i].flag,
+            region:c[i].region,
+            subregion:c[i].subregion,
+            area:c[i].area,
+            population: c[i].population
+            })
+        }
         // for(let j= 2; j< response.length; j++){
         //     console.log(response[j])
         //       await Country.create({
