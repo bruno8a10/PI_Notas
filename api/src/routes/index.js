@@ -1,17 +1,19 @@
 const { Router } = require('express');
-const Country = require('../contrllers/getCountry')
-const CountryId = require('../contrllers/getCountryId')
-const ActivityAlta = require ('../contrllers/postAct')
-const Activity = require('../contrllers/getAct')
+const AlumnoId = require('../contrllers/getAlumnoId')
+const PostAlumno= require('../contrllers/postAlumno')
+const Alumnos = require('../contrllers/getAlumnos')
+const PostMateria = require ('../contrllers/postMateria')
+const Materias = require('../contrllers/getMaterias')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
 
 const router = Router();
-router.use('/countryId', CountryId);
-router.use('/country',Country);
-router.use('/activity', Activity);
-router.use('/actPost', ActivityAlta);
+router.use('/alumnoId', AlumnoId)
+router.use('/postAlumno', PostAlumno);
+router.use('/alumnos',Alumnos);
+router.use('/materias', Materias);
+router.use('/postMateria', PostMateria);
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 

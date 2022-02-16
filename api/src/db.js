@@ -6,7 +6,7 @@ const {
   DB_USER, DB_PASSWORD, DB_HOST,
 } = process.env;
 
-const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
+const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/alumnos`, {
   logging: false, // set to console.log to see the raw SQL queries
   native: false, // lets Sequelize know we can use pg-native for ~30% more speed
 });
@@ -30,10 +30,11 @@ sequelize.models = Object.fromEntries(capsEntries);
 
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
-const { Country, Activity } = sequelize.models;
-Country.belongsToMany(Activity, {through: 'cont_act'});
-Activity.belongsToMany(Country, {through: 'cont_act'});
-
+const { Alumno, Materia,Nota } = sequelize.models;
+Alumno.belongsToMany(Materia, {through: 'alum_mate'});
+Materia.belongsToMany(Alumno, {through: 'alum_mate'});
+Materia.belongsToMany(Nota, {through: 'mate_nota'});
+Nota.belongsToMany(Materia, {through: 'mate_nota'});
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
