@@ -1,5 +1,5 @@
 .contenedor{
-    justify-content: space-around;
+    justify-content: center;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 0px;
@@ -19,12 +19,12 @@
     margin: 0 auto;
     text-align: center;
   }
-  .button {
+  .button1 {
     /* Alinear los botones con los campos de texto */
     /* mismo tamaño que los elementos de la etiqueta */
     position: relative;
     text-align: center;
-    font-weight: 50;
+    font-weight: 80;
     border: 3px solid #3366ff; /*anchura, estilo y color borde*/
 padding: 2 px; /*espacio alrededor texto*/
 background-color: transparent; /*color botón*/
@@ -36,11 +36,11 @@ font-family: 'Open Sans', sans-serif; /*tipografía texto*/
 border-radius: 5px; /*bordes redondos*/
 padding-top: 0px;
 margin-top: 0px;
-width: 150px;
-height: 40px;
+width: 100px;
+height: 30px;
 /* margin-left: 870px;  */
   }
   .button1:hover{
-    color: #ff0000 ;
-    border-color: #ff0000;
+    color: #3366ff ;
+    border-color: #ffffff;
   }

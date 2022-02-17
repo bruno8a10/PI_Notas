@@ -1,56 +1,81 @@
 import React, { useEffect, useState } from "react";
 import Card from "./card";
 import "./cards.css"
-import {getCountries} from "../../actions";
-import { connect } from 'react-redux';
+import {getAlumnos} from "../../actions";
 import { useDispatch, useSelector } from 'react-redux';
-
-
-function Cards(props) {
-  //const dispatch = useDispatch();
-// const f = useSelector(state => state.filtroPokemon)
-  const estados = useSelector((state) => state);
+export default function Cards() {
+  const dispatch = useDispatch()
+  const estados = useSelector((state) => state); 
+  const a = useSelector((state) => state.alumnos); 
+  const f = useSelector((state) => state.filtro)
+  const [query, setQuery] = useState('')
   const [numeroPagina, setPagina] = useState(1);
-	const grupo = 10;
+	const grupo = 5;
 	const conteoFinal = numeroPagina * grupo;
 	const conteoInicial = conteoFinal - grupo;
-    const countries = props.countries.slice(conteoInicial,conteoFinal)
-  useEffect(()=> {
-    props.getCountries()
-   },[])
-  // acá va tu código
-  // tip, podés usar un map
+  const alumnos = a.slice(conteoInicial,conteoFinal)
+  //paginado
+  var inicio = true;
+  var final = true;
+  var pag = true;
+  if(conteoInicial=== 0 || f.length>0){
+    inicio=false;
+}
+if(numeroPagina >=Math.ceil(alumnos.length/1|| f.length>0)){
+    final=false
+}
+if(f.length>0){
+    final=false
+}
+
+
+  useEffect(() => {
+    dispatch(getAlumnos(query))
+   },[query])
     return (
     <div>
        <div className="contenedor">
-            { countries.map(c=>
+            { 
+            f.length > 0? f.map(c=>
+              <div>
+              <Card
+              key={c.id}     
+                 id={c.id}
+                 nombre={c.nombre}
+                 apellido={c.apellido}     
+                 foto={c.foto}         
+              /> 
+            </div>
+           ):
+
+
+            alumnos.map(c=>
                <div>
-               <Card    
+               <Card
+               key={c.id}     
                   id={c.id}
-                  name={c.name}   
-                  flag={c.flag}         
+                  nombre={c.nombre}
+                  apellido={c.apellido}     
+                  foto={c.foto}         
                /> 
              </div>
-              
-            )}
+            )
+            }
        </div>
-       <div className="paginationBtns">
-             <button className="button" onClick={() => setPagina(numeroPagina - 1)}>Anterior</button>
-            <button className="button">{numeroPagina}</button>
-            <button className="button" onClick={() => setPagina(numeroPagina + 1)}>Siguiente</button>
+       <div >
+           {inicio ?(
+               <button className="button1" onClick={() => setPagina(numeroPagina - 1)}>Anterior</button>
+           ):null}
+            {pag ?(
+               <button  className="button1">{numeroPagina}</button>
+           ):null}
+
+            {final ?(
+               <button   className="button1" onClick={() => setPagina(numeroPagina + 1)}>Siguiente</button>
+           ):null}
+            
+            
          </div>
      </div>
     )
 };
-function mapStateToProps(state){
-return {
-    ...state
-}
-}
-function mapDispatchToProps(dispatch){
-return {
-   
-    getCountries: (query) => dispatch(getCountries(query))
-}
-}
-export default connect(mapStateToProps,mapDispatchToProps)(Cards)

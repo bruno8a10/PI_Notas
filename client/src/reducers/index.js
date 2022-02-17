@@ -1,79 +1,61 @@
-import {GET_COUNTRIES,GET_ACTIVITY, GET_DETALLE_COUNTRY, EMPTY_DETALLE_COUNTRY} from "../actions"
+import {GET_MATERIA,GET_ALUMNO, GET_DETALLE_ALUMNO, EMPTY_DETALLE_ALUMNO} from "../actions"
 // //==== Setear Estado Global Inicial ======//
 const initialState = {
-    countries:[],
-    activity:[],
-    filtroContinente:[],
-    filtroActividad:[],
-    ordenarContries:[],
-    countryDetalles:{}
+    alumnos:[],
+    materias:[],
+    filtro:[],
+    ordenarNombre:[],
+    AlumnoDetalles:{}
 }
 // //==== Setear Reducers ======//
 function rootReducer(state = initialState, action){
    //Rutas
-    if (action.type === GET_COUNTRIES){
+    if (action.type === GET_ALUMNO){
         return {
            ...state, 
-           countries: action.payload
+           alumnos: action.payload
         }
       }
-      if (action.type === GET_ACTIVITY){
+      if (action.type === GET_MATERIA){
         return {
            ...state, 
-           activity: action.payload
+           materias: action.payload
         }
       }
-    if(action.type === GET_DETALLE_COUNTRY){
+    if(action.type === GET_DETALLE_ALUMNO){
         return {
             ...state,
-            countryDetalles: action.payload
+            AlumnoDetalles: action.payload
        }
     }
-    if(action.type === EMPTY_DETALLE_COUNTRY){
+    if(action.type === EMPTY_DETALLE_ALUMNO){
         return {
             ...state,
-            countryDetalles:{}
+            AlumnoDetalles:{}
        }
     }  
     //ordenamiento
       if(action.type === "OrdenarAZ"){
         return{
             ...state,
-            ordenarContries: action.payload
+            ordenarNombre: action.payload
         }    
         }
         if(action.type === "OrdenarZA"){
             return{
             ...state,
-            ordenarContries: action.payload
+            ordenarNombre: action.payload
             }    
-            }
-         if(action.type === "OrdenarMax"){
-             return{
-                ...state,
-                ordenarContries: action.payload
-             }    
-         }
-         if(action.type === "OrdenarMin"){
-             return{
-             ...state,
-             ordenarContries: action.payload
-             }    
-        } 
-    //________________________________________
-    if(action.type === "FiltrarPorContinente"){
+            } 
+  //   //________________________________________
+    if(action.type === "Filtrar"){
+      console.log("reduce")
         return{
         ...state,
-        filtroContinente: action.payload
+        filtro: action.payload
         }    
    } 
 
-   if(action.type === "FiltrarPorActividad"){
-    return{
-    ...state,
-    filtroActividad: action.payload
-    }    
-  } 
     return state;
 }
  export default rootReducer;

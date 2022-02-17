@@ -8,7 +8,6 @@ nav {
 } */
  */
  nav {
-
    align-items: center;
 	background:#528fd5;
 	margin-top:auto;
@@ -29,7 +28,7 @@ nav > ul > li {
 nav ul li a {
     text-align: center;
 	text-decoration:none;
-	color:#3366ff;
+	color:#ffffff;
 	display:block;
 	padding:15px 12px;
 	font-size: 17px;
@@ -37,10 +36,10 @@ nav ul li a {
 }
 nav ul li a:hover {
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
-  background:#000000;
-  color:#ffffff;
+  background:#040404;
+  color:#3366ff;
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 nav > ul > li:hover div {
