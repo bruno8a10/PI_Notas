@@ -12,7 +12,7 @@ app.get("/:id", async function (req,res){
         })
          return res.status(200).send(AlumnoId)
         }catch(err){
-        return res.send("Error genral")  
+        return res.send("Error general")  
 }
 })
 module.exports = app;

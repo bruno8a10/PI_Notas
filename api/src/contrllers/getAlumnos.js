@@ -38,7 +38,6 @@ app.get("/", async (req,res) => {
                 exclude:['createdAt','updatedAt']},
             include:{ 
             model:Materia,
-            attributes:['nombre'],
             through:{
                 attributes:[]
             }

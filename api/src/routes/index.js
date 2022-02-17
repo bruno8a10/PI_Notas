@@ -4,6 +4,7 @@ const PostAlumno= require('../contrllers/postAlumno')
 const Alumnos = require('../contrllers/getAlumnos')
 const PostMateria = require ('../contrllers/postMateria')
 const Materias = require('../contrllers/getMaterias')
+const PostNota = require('../contrllers/postNota')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -14,6 +15,8 @@ router.use('/postAlumno', PostAlumno);
 router.use('/alumnos',Alumnos);
 router.use('/materias', Materias);
 router.use('/postMateria', PostMateria);
+router.use('/postNota',PostNota)
+
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
