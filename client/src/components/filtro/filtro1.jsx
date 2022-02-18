@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import {getMateria} from "../../actions";
 import {filtro} from "../../actions";
 import { useDispatch, useSelector } from 'react-redux';

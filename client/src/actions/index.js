@@ -3,7 +3,7 @@ export const GET_DETALLE_ALUMNO = "GET_DETALLE_ALUMNO";
 export const EMPTY_DETALLE_ALUMNO = "EMPTY_DETALLE_ALUMNO";
 export const GET_MATERIA= "GET_MATERIA";
 export const POSTALUMNO="POSTALUMNO";
-
+ 
 export function postAlumno(body){
     return function(dispatch){
         return(

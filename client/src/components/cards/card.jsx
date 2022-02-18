@@ -3,7 +3,6 @@ import  "./card.css"
 import { Link } from "react-router-dom";
 
 export default function Card({id,nombre, foto,apellido}) {
-
   return (
     <div className = "movieCard" >
          <h4 >{nombre}  {apellido}</h4>

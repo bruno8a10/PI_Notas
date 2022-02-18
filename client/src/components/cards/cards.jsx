@@ -5,7 +5,6 @@ import {getAlumnos} from "../../actions";
 import { useDispatch, useSelector } from 'react-redux';
 export default function Cards() {
   const dispatch = useDispatch()
-  const estados = useSelector((state) => state); 
   const a = useSelector((state) => state.alumnos); 
   const f = useSelector((state) => state.filtro)
   const [query, setQuery] = useState('')
@@ -26,6 +25,7 @@ if(numeroPagina >=Math.ceil(alumnos.length/1|| f.length>0)){
 }
 if(f.length>0){
     final=false
+    pag=false
 }
 
 

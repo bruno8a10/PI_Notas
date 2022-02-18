@@ -2,7 +2,7 @@ import React, { useEffect,useState} from "react";
 import { useSelector,useDispatch } from 'react-redux';
 import "./alta.css";  
 import Menu2 from "../menu/menu2";
-import {getMateria,postAlumno} from "../../actions";
+import {getMateria} from "../../actions";
 
 export default function AltaAlumno(props) {
   const dispatch = useDispatch();
@@ -25,13 +25,21 @@ export default function AltaAlumno(props) {
     [e.target.name]: e.target.value
   })
 }
-
-
-
 //trear los datos
 const [inp, setIn] = useState({
-  materas :[]
+  materia :[]
 })
+
+function handleTypes (e){
+  props.getTypes(e.target.value)
+  setInput({
+    ...input,
+    [e.target.name]:[...input.id, e.target.value]
+  })
+  setIn({
+    materia:[...inp.materia, props.materias]
+  })
+} 
 
   useEffect(() => {
     dispatch(getMateria())
@@ -43,13 +51,20 @@ const [inp, setIn] = useState({
       materias.push(e.target.value)
       console.log(materias)
     }
-  
   async function handleSubmit(e) {
     let { nombre, apellido,dni, estadoCivil,sexo,domicilio} = input
   	let body={nombre, apellido,dni, estadoCivil,sexo,materias,domicilio}
     console.log(body)
     e.preventDefault()
-      dispatch(postAlumno(body));
+      // dispatch(postAlumno(body));
+      await fetch('http://localhost:3001/postAlumno', {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+    }
+    ,
       setInput({
         nombre: "",
         apellido: "",
@@ -60,6 +75,7 @@ const [inp, setIn] = useState({
         domicilio: "",
         materias: ""   
       })	
+      )
   	}
     
     return (

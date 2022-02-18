@@ -102,7 +102,7 @@ nav ul li div ul li a {
 	border: 3px solid transparent; /*anchura, estilo y color borde*/
   padding: 5px; /*espacio alrededor texto*/
   background-color: transparent; /*color botón*/
-  color: #3366ff; /*color texto*/
+  color: #ffffff; /*color texto*/
   text-decoration: none; /*decoración texto*/
   /* text-transform: uppercase; */
    /*capitalización texto*/
@@ -110,6 +110,6 @@ nav ul li div ul li a {
   /* margin-left: 870px;  */
   }
   .button4:hover{
-	color: #ffffff; /*color texto*/
+	color: #3366ff; /*color texto*/
 	font-weight: 600;
   }

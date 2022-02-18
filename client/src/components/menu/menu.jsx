@@ -28,6 +28,7 @@ function ZA(){
 				<li><a href="/">Todo los Alumnos</a></li>
 				<li><button  className="button4" onClick={AZ} >Ordenar Nombre A-Z</button></li>
 				<li><button  className="button4" onClick={ZA} >Ordenar Nombre Z-A</button></li>
+        <li><a href="AltaMateria">Alta de Materia</a></li>
 				<li><a href="Alta">Alta de Alumnos</a></li>
 			</ul>
 		</nav>

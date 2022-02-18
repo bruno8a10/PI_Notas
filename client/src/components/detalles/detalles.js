@@ -1,17 +1,53 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
-import {getDetalleAlumno, emptyDetalleAlumno} from "../../actions";
+import{useParams} from 'react-router-dom'
+import {getDetalleAlumno,emptyDetalleAlumno} from "../../actions";
 import Spinner from "../Spinner";
 import "./detalles.css"; 
 import Menu2 from "../menu/menu2";
-export default function Detalle(props) {
+export default function Detalle() {
   const dispatch = useDispatch()
+  
   const alumno = useSelector((state => state.AlumnoDetalles))
-  const id= props.match.params.id;
+  const {id}= useParams()
+  const [input, setInput] = useState({
+    nombre: alumno.nombre,
+    dni:alumno.dni,
+    apellido:alumno.apellido,
+    sexo:alumno.sexo,
+    estadoCivil:alumno.estadoCivil,
+    foto:alumno.foto,
+    domicilio:alumno.domicilio
+ })
+ function handleChange (e){
+  //permite ingresar los datos
+  setInput({
+    ...input,
+    [e.target.name]: e.target.value
+  })
+}
+
+async function handleSubmit(e) {
+  let { nombre, apellido,dni, estadoCivil,sexo,domicilio,foto} = input
+  let body={nombre, apellido,dni, estadoCivil,sexo,domicilio,foto}
+  console.log(body)
+  e.preventDefault()
+    // dispatch(postAlumno(body));
+    await fetch('http://localhost:3001/putAlumno/'+id, {
+      method: 'PUT',
+      headers: {
+      'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(body)
+  }
+  ,
+  
+    )
+  }
   useEffect(()=>{
     dispatch(emptyDetalleAlumno())
     dispatch(getDetalleAlumno(id))    
-  },[id])
+  },[id,dispatch])
     return (
       <div  translate ="no">  
        <p class="centrado">
@@ -19,13 +55,62 @@ export default function Detalle(props) {
           </p>
      <Menu2/>
       <div>
-       {alumno.nombre?
+       {input.nombre?
         <div className="detalle" >
-           <h4>{alumno.dni}</h4>
-           <h4>Nombre : {alumno.nombre} , Apellido : {alumno.apellido}</h4>
-           <h4>Sexo : {alumno.sexo} , Estado Civil : {alumno.estadoCivil}</h4>
-          <img width = "350px" height = "250px"src={alumno.foto} alt={alumno.nombre}/>
+          <form className="forms"  onSubmit={handleSubmit}>
+          <ul>
+           <li>
+           <label>Dni </label>
+           </li>
+          <li>
+          <input required  type="number" name="dni"  value={input.dni}   onChange={handleChange}/>
+         </li>
+         <li>
+         <label>Nombre</label>
+         </li>
+         <input required  type="text" name="nombre" value={input.nombre} onChange={handleChange} />
+         <li>
+         <label>Apellido</label>
+         </li>
+         <li>
+         <input required  type="text" name="apellido" value={input.apellido} onChange={handleChange}/>
+         </li>
+         <li>
+         <label>Sexo</label>
+         </li>
+         <li>
+         <input required  type="text" name="sexo" value={input.sexo} onChange={handleChange}/>
+        </li>
+        <li>
+        <label>Estado Civil</label>
+        </li>
+         <li>
+         <input required  type="text" name="estadoCivil" value= {input.estadoCivil} onChange={handleChange}/>
+        </li>
+        <li>
+        <label>Domicilio</label>
+        </li>
+        <li>
+        <input required  type="text" name="domicilio" value={input.domicilio}  onChange={handleChange}/>
+        </li>
+        <li>
+        <label>Url Foto</label>
+        </li>
+        <li>
+        <input required  type="text" name="nombre" value= {input.foto} onChange={handleChange}/>
+        </li>
+        <li>
+        <input className="cract" type="submit" value="Crear"/>
+        
+        </li>
+         </ul>  
+         </form> 
+          
+           <br></br>
+          <img width = "250px" height = "150px"src={alumno.foto} alt={alumno.nombre}/>
+      
          </div>
+         
          :<Spinner/>
        } 
       </div>

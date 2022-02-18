@@ -7,7 +7,7 @@ import { useDispatch,useSelector} from 'react-redux';
 import {getAlumnos} from "../../actions";
 export default function Home() {
   const dispatch = useDispatch()
-  const estados = useSelector((state) => state); 
+  const estado = useSelector((state) => state); 
   //____busqueda_______
   const [query, setQuery] = useState("");
 function handleChange (q) {
