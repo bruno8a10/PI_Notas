@@ -55,7 +55,7 @@ async function handleSubmit(e) {
           </p>
      <Menu2/>
       <div>
-       {input.nombre?
+       {alumno.nombre?
         <div className="detalle" >
           <form className="forms"  onSubmit={handleSubmit}>
           <ul>
@@ -63,41 +63,41 @@ async function handleSubmit(e) {
            <label>Dni </label>
            </li>
           <li>
-          <input required  type="number" name="dni"  value={input.dni}   onChange={handleChange}/>
+          <input required  type="number" name="dni"  value={input.dni || alumno.dni}   onChange={handleChange}/>
          </li>
          <li>
          <label>Nombre</label>
          </li>
-         <input required  type="text" name="nombre" value={input.nombre} onChange={handleChange} />
+         <input required  type="text" name="nombre" value={input.nombre || alumno.nombre} onChange={handleChange} />
          <li>
          <label>Apellido</label>
          </li>
          <li>
-         <input required  type="text" name="apellido" value={input.apellido} onChange={handleChange}/>
+         <input required  type="text" name="apellido" value={input.apellido || alumno.apellido} onChange={handleChange}/>
          </li>
          <li>
          <label>Sexo</label>
          </li>
          <li>
-         <input required  type="text" name="sexo" value={input.sexo} onChange={handleChange}/>
+         <input required  type="text" name="sexo" value={input.sexo || alumno.sexo} onChange={handleChange}/>
         </li>
         <li>
         <label>Estado Civil</label>
         </li>
          <li>
-         <input required  type="text" name="estadoCivil" value= {input.estadoCivil} onChange={handleChange}/>
+         <input required  type="text" name="estadoCivil" value= {input.estadoCivil || alumno.estadoCivil} onChange={handleChange}/>
         </li>
         <li>
         <label>Domicilio</label>
         </li>
         <li>
-        <input required  type="text" name="domicilio" value={input.domicilio}  onChange={handleChange}/>
+        <input required  type="text" name="domicilio" value={input.domicilio|| alumno.domicilio}  onChange={handleChange}/>
         </li>
         <li>
         <label>Url Foto</label>
         </li>
         <li>
-        <input required  type="text" name="nombre" value= {input.foto} onChange={handleChange}/>
+        <input required  type="text" name="nombre" value= {input.foto||alumno.foto} onChange={handleChange}/>
         </li>
         <li>
         <input className="cract" type="submit" value="Crear"/>
@@ -107,7 +107,7 @@ async function handleSubmit(e) {
          </form> 
           
            <br></br>
-          <img width = "250px" height = "150px"src={alumno.foto} alt={alumno.nombre}/>
+          <img width = "250px" height = "150px"src={alumno.foto} alt={alumno.foto}/>
       
          </div>
          
