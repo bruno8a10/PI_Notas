@@ -1,4 +1,3 @@
-const URLAPI = "https://restcountries.eu/rest/v2/all";
 const {Router}= require("express");
 const { Alumno,Materia } = require("../db.js");
 const {Op} = require ("sequelize");

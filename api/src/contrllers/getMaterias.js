@@ -5,17 +5,18 @@ const axios = require("axios");
 const app = Router();
 app.get("/", async (req,res) =>{
     try{
-        let materias = await Materia.findAll(
-            {
+        let materias = await Materia.findAll({
+            include: {
+                model: Nota,
                 attributes: {
-                    exclude:['createdAt','updatedAt']},
-                include:{ 
-                model:Nota,
-                through:{
-                    attributes:[]
+                    exclude: ['createdAt', 'updatedAt']
                 }
+            },
+            attributes: {
+                exclude: ['createdAt', 'updatedAt']
             }
-            }
+        }
+     
         );
         return res.status(200).json(materias)
     }catch(err){

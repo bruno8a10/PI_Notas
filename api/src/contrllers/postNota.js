@@ -10,9 +10,9 @@ app.post("/", async function(req, res) {
     try{
         const alu = await Alumno.findByPk(idAlumno)  
         await alu.addMateria(idMateria)
-        console.log("1111")
+        console.log("se realizo alumno materia")
         const mat = await Materia.findByPk(idMateria)
-        console.log(mat)
+        console.log(mat.dataValues.id)
         let n = await Nota.create({
             calificacion
          });

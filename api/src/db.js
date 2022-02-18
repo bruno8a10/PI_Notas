@@ -34,8 +34,8 @@ const { Alumno, Materia,Nota } = sequelize.models;
 Alumno.belongsToMany(Materia, {through: 'alum_mate'});
 Materia.belongsToMany(Alumno, {through: 'alum_mate'});
 
-Materia.belongsToMany(Nota, {through: 'mate_nota'});
-Nota.belongsToMany(Materia, {through: 'mate_nota'});
+Materia.hasMany(Nota,{foreignKey: 'idAlumno'});
+Nota.belongsTo(Materia);
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
