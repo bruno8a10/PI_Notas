@@ -1,11 +1,14 @@
-import {GET_MATERIA,GET_ALUMNO, GET_DETALLE_ALUMNO, EMPTY_DETALLE_ALUMNO} from "../actions"
+import {GET_MATERIA,GET_ALUMNO, GET_DETALLE_ALUMNO, GET_NOTA,EMPTY_DETALLE_ALUMNO} from "../actions"
 // //==== Setear Estado Global Inicial ======//
 const initialState = {
+    det:true,
     alumnos:[],
     materias:[],
     filtro:[],
     ordenarNombre:[],
-    AlumnoDetalles:{}
+    AlumnoDetalles:{},
+    notaAlumnos:[],
+    n:[]
 }
 // //==== Setear Reducers ======//
 function rootReducer(state = initialState, action){
@@ -16,6 +19,12 @@ function rootReducer(state = initialState, action){
            alumnos: action.payload
         }
       }
+      if (action.type === GET_NOTA){
+        return {
+           ...state, 
+           notaAlumnos: action.payload
+        }
+      }
       if (action.type === GET_MATERIA){
         return {
            ...state, 
@@ -23,6 +32,7 @@ function rootReducer(state = initialState, action){
         }
       }
     if(action.type === GET_DETALLE_ALUMNO){
+       
         return {
             ...state,
             AlumnoDetalles: action.payload
@@ -55,6 +65,14 @@ function rootReducer(state = initialState, action){
         filtro: action.payload
         }    
    } 
+   if(action.type === "NotaE"){
+    console.log("reduce")
+      return{
+      ...state,
+      n: action.payload
+      }    
+ } 
+   
 
     return state;
 }

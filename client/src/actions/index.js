@@ -3,6 +3,7 @@ export const GET_DETALLE_ALUMNO = "GET_DETALLE_ALUMNO";
 export const EMPTY_DETALLE_ALUMNO = "EMPTY_DETALLE_ALUMNO";
 export const GET_MATERIA= "GET_MATERIA";
 export const POSTALUMNO="POSTALUMNO";
+export const GET_NOTA="GET_NOTA";
  
 export function postAlumno(body){
     return function(dispatch){
@@ -14,6 +15,20 @@ export function postAlumno(body){
                   },
               	body: JSON.stringify(body)
               	})
+        )
+    }
+}
+
+
+export function notaAlumno(){
+    return function(dispatch){
+        return(
+            fetch(`http://localhost:3001/nota`)
+            .then(res => res.json())
+            //despachamos el objeto al reduce
+            .then((json)=>{
+                dispatch({type: GET_NOTA, payload: json})
+            })
         )
     }
 }
@@ -82,4 +97,12 @@ export function ordenNombreZA(alumnos){
        }
      }
    return{type: "Filtrar", payload: arr}
-};     
+};   
+  
+export function notaEspecifica(notas, idA,idM){
+    let arr =[]
+   for(let i=0; i<notas.length;i++){
+       console.log(notas[i])
+     }
+   return{type: "NotaE", payload: arr}
+}; 

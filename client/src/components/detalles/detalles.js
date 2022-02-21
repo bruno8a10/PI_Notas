@@ -1,14 +1,14 @@
 import React, { useEffect,useState } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import{useParams} from 'react-router-dom'
-import {getDetalleAlumno,emptyDetalleAlumno} from "../../actions";
+import {getDetalleAlumno,emptyDetalleAlumno,notaAlumno,notaEspecifica} from "../../actions";
 import Spinner from "../Spinner";
 import "./detalles.css"; 
 import Menu2 from "../menu/menu2";
 export default function Detalle() {
   const dispatch = useDispatch()
-  
   const alumno = useSelector((state => state.AlumnoDetalles))
+  const notas = useSelector(state =>(state.notaAlumnos))
   const {id}= useParams()
   const [input, setInput] = useState({
     nombre: alumno.nombre,
@@ -25,6 +25,11 @@ export default function Detalle() {
     ...input,
     [e.target.name]: e.target.value
   })
+}
+
+function fn2(e) {
+  //alert("entrooo" + e.target.value)
+  dispatch(notaEspecifica(notas,alumno.id, alumno.materia ));
 }
 
 async function handleSubmit(e) {
@@ -45,6 +50,7 @@ async function handleSubmit(e) {
     )
   }
   useEffect(()=>{
+    dispatch(notaAlumno())
     dispatch(emptyDetalleAlumno())
     dispatch(getDetalleAlumno(id))    
   },[id,dispatch])
@@ -100,8 +106,13 @@ async function handleSubmit(e) {
         <input required  type="text" name="nombre" value= {input.foto||alumno.foto} onChange={handleChange}/>
         </li>
         <li>
-        <input className="cract" type="submit" value="Crear"/>
-        
+        <label>...Materias...</label>
+        </li>
+        <li>
+        {(alumno.materia).length>0? (alumno.materia.map(e=> <h3>{e.nombre} </h3> )):<h3> no tiene notas cargadas</h3>}
+        </li>
+        <li>
+        <input className="cract" type="submit" value="Modificar"/>
         </li>
          </ul>  
          </form> 
