@@ -8,8 +8,9 @@ app.get("/", async (req,res) =>{
         let materias = await Materia.findAll({
             include: {
                 model: Nota,
+                attributes:['id'],
                 attributes: {
-                    exclude: ['createdAt', 'updatedAt']
+                    exclude: ['createdAt', 'updatedAt','materiumId']
                 }
             },
             attributes: {

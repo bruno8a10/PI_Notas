@@ -3,6 +3,8 @@ const axios = require ("axios");
 const {Router} = require("express");
 const {Op} = require("sequelize");
 const app = Router();
+
+
 app.post("/", async function(req, res) {
     let{idAlumno,idMateria,calificacion} = req.body
     console.log(idAlumno,idMateria,calificacion)
@@ -18,6 +20,7 @@ app.post("/", async function(req, res) {
          });
 
         await mat.addNota(n)
+        await alu.addNota(n)
         console.log("222")
        // await newAct.addCountry(countries);
         return res.json(n) 
@@ -25,4 +28,5 @@ app.post("/", async function(req, res) {
         return res.send("Error general")
     }    
 })
+
 module.exports = app;

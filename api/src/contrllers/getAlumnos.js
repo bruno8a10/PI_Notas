@@ -33,8 +33,6 @@ app.get("/", async (req,res) => {
 
         }
         let bs = await Alumno.findAll({
-            attributes: {
-                exclude:['createdAt','updatedAt']},
             include:{ 
             model:Materia,
             through:{

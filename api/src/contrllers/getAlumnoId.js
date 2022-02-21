@@ -8,7 +8,9 @@ app.get("/:id", async function (req,res){
         try{
          let AlumnoId = await Alumno.findByPk(id,
             {
-            include:[Materia] 
+            include:[Materia],
+            exclude: ['createdAt', 'updatedAt']
+             
         })
          return res.status(200).send(AlumnoId)
         }catch(err){
