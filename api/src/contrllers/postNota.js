@@ -21,8 +21,6 @@ app.post("/", async function(req, res) {
 
         await mat.addNota(n)
         await alu.addNota(n)
-        console.log("222")
-       // await newAct.addCountry(countries);
         return res.json(n) 
     }catch(error){
         return res.send("Error general")

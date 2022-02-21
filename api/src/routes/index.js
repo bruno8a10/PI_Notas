@@ -8,6 +8,7 @@ const PostNota = require('../contrllers/postNota')
 const PutMateria = require('../contrllers/putMateria')
 const PutAlumno = require('../contrllers/putAlumno')
 const Nota = require('../contrllers/getNota')
+const NotaAlumno = require('../contrllers/getNotaAlumno')
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
@@ -22,7 +23,7 @@ router.use('/postNota',PostNota)
 router.use('/putMateria',PutMateria)
 router.use('/putAlumno',PutAlumno)
 router.use('/nota',Nota)
-
+router.use('/notaAlumno',NotaAlumno)
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
